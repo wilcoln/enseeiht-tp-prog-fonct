@@ -1,0 +1,17 @@
+EXCLUDE_QUERY_DIR
+B /applications/opam-2.0.4/default/lib/base
+B /applications/opam-2.0.4/default/lib/base/caml
+B /applications/opam-2.0.4/default/lib/base/shadow_stdlib
+B /applications/opam-2.0.4/default/lib/ppx_inline_test/config
+B /applications/opam-2.0.4/default/lib/ppx_inline_test/runtime-lib
+B /applications/opam-2.0.4/default/lib/sexplib0
+B _build/default/.appli_chaines.eobjs/byte
+B _build/default/.tp.objs/byte
+S /applications/opam-2.0.4/default/lib/base
+S /applications/opam-2.0.4/default/lib/base/caml
+S /applications/opam-2.0.4/default/lib/base/shadow_stdlib
+S /applications/opam-2.0.4/default/lib/ppx_inline_test/config
+S /applications/opam-2.0.4/default/lib/ppx_inline_test/runtime-lib
+S /applications/opam-2.0.4/default/lib/sexplib0
+S .
+FLG -w -40 -open Tp -w -40
