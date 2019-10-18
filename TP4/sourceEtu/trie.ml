@@ -6,6 +6,7 @@ open Chaines
     triplet arbre, 
             fonction de décomposition mot -> liste de caractères,
             fonction de recomposition liste de caractères -> mot *)
+
 type ('a,'b) trie = Trie of ('b arbre) * ('a -> 'b list) * ('b list -> 'a)
 
 
@@ -20,6 +21,7 @@ type ('a,'b) trie = Trie of ('b arbre) * ('a -> 'b list) * ('b list -> 'a)
 (*                     liste de caractères -> mot                             *)
 (*   résultat     : un nouveau trie "vide"                                    *)
 (******************************************************************************)
+
 let nouveau fd fr = Trie(Noeud(false,[]), fd, fr)
 
 (******************************************************************************)
@@ -29,6 +31,7 @@ let nouveau fd fr = Trie(Noeud(false,[]), fd, fr)
 (*                - un trie                                                   *)
 (*   résultat   : le résultat booléen du test                                 *)
 (******************************************************************************)
+
 let rec appartient mot trie = 
     match trie with 
     | Trie(Noeud(b, lf), fd, fr) -> 
@@ -46,14 +49,15 @@ let rec appartient mot trie =
 (*                - un trie                                                   *)
 (*   résultat   : le trie avec le mot ajouté                                  *)
 (******************************************************************************)
+
 let ajout mot (Trie(arbre, decompose, recompose)) = 
     Trie (ajout_arbre (decompose mot) arbre,decompose,recompose)
 
 (** Pour les tests *)
+
 let trie_sujet = List.fold_right ajout 
                                  ["bas"; "bât"; "de"; "la"; "lai"; "laid"; "lait"; "lard"; "le"; "les"; "long"]
                                  (nouveau decompose_chaine recompose_chaine);;
-
 
 (******************************************************************************)
 (*   fonction de retrait d'un élément d'un trie                               *)
@@ -62,6 +66,7 @@ let trie_sujet = List.fold_right ajout
 (*                - un trie                                                   *)
 (*   résultat   : le trie avec le mot retiré                                  *)
 (******************************************************************************)
+
 let retrait mot (Trie(arbre, decompose, recompose)) = 
     Trie (retrait_arbre (decompose mot) arbre,decompose,recompose)
 
@@ -72,8 +77,13 @@ let retrait mot (Trie(arbre, decompose, recompose)) =
 (*   paramètre(s) : le trie                                                   *)
 (*   résultat     : la liste des mots                                         *)
 (******************************************************************************)
-let trie_dico (Trie(arbre, decompose, recompose)) = 
 
+
+ let rec trie_dico (Trie(arbre, decompose, recompose)) =  
+
+    let concat acc lmot =  List.map (fun mot -> recompose (decompose acc) (decompose mot)) lmot in
+        match arbre with 
+            | Noeud(b, lb) -> List.flatten (List.map (fun (l, sa) -> concat l (trie_dico (Trie(sa, decompose, recompose)))) lb) 
 
 (******************************************************************************)
 (* procédure d'affichage d'un trie                                            *)
@@ -82,4 +92,5 @@ let trie_dico (Trie(arbre, decompose, recompose)) =
 (*                - un trie                                                   *)
 (*   résultat   : aucun                                                       *)
 (******************************************************************************)
+
 let affiche p trie = failwith "TO DO affiche"
