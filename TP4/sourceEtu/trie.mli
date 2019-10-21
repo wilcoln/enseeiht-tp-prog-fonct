@@ -44,6 +44,9 @@ val ajout : 'a -> ('a, 'b) trie -> ('a, 'b) trie
 (*   résultat   : le trie avec le mot retiré                                  *)
 (******************************************************************************)
 val retrait : 'a -> ('a, 'b) trie -> ('a, 'b) trie
+
+val trie_dico : ('a, 'b) trie -> 'a list       
+
  
 (******************************************************************************)
 (* procédure d'affichage d'un trie                                            *)
