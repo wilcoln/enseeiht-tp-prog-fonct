@@ -4,8 +4,7 @@ B /home/wilcoln/.opam/system/lib/base/shadow_stdlib
 B /home/wilcoln/.opam/system/lib/ppx_inline_test/config
 B /home/wilcoln/.opam/system/lib/ppx_inline_test/runtime-lib
 B /home/wilcoln/.opam/system/lib/sexplib0
-B _build/default/.appli_chaines.eobjs
-B _build/default/.tp.objs
+B _build/default/.be.objs
 S /home/wilcoln/.opam/system/lib/base
 S /home/wilcoln/.opam/system/lib/base/caml
 S /home/wilcoln/.opam/system/lib/base/shadow_stdlib
@@ -13,5 +12,5 @@ S /home/wilcoln/.opam/system/lib/ppx_inline_test/config
 S /home/wilcoln/.opam/system/lib/ppx_inline_test/runtime-lib
 S /home/wilcoln/.opam/system/lib/sexplib0
 S .
-FLG -ppx ''\''/home/wilcoln/Workspace/School/Semestre 1/Programmation Fonctionnelle/TPs/enseeiht-tp-prog-fonct/TP4/sourceEtu/_build/default/.ppx/ppx_inline_test/ppx.exe'\'' --as-ppx --cookie '\''library-name="tp"'\'''
-FLG -w -40 -open Tp -w -40
+FLG -ppx ''\''/home/wilcoln/Workspace/School/Semestre 1/Programmation Fonctionnelle/BE/sourceEtu/_build/default/.ppx/ppx_inline_test/ppx.exe'\'' --as-ppx --cookie '\''library-name="be"'\'''
+FLG -open Be -w -40
